@@ -7,15 +7,42 @@
         mc:Ignorable="d"
         Title="MyWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                To Do
+            </TextBlock>
+            
+            <GridSplitter Grid.Column="0" VerticalAlignment="Stretch">
+
+            </GridSplitter>
+            
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                Done
+            </TextBlock>
+            
+            
+            
+        </Grid>
+        
+        <Grid>
+            
+        </Grid>
     </Grid>
+
+
 </Window>
