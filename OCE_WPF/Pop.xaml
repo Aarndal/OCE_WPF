@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCE_WPF"
         mc:Ignorable="d"
-        Title="Pop" Height="350" Width="600"
+        Title="New Task" Height="350" Width="600"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
