@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OCE_WPF"
         mc:Ignorable="d"
         Title="ToDo" Height="450" Width="800">
-    
+
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
@@ -16,17 +16,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">
@@ -40,7 +40,7 @@
             </TextBlock>
 
         </Grid>
-        
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -50,7 +50,11 @@
                 <ColumnDefinition Width="0.4*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
+            <Button Padding="5" Click="Button_Click" Margin="18,0,279,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Icons/Plus_Button.ico" />
+                </StackPanel>
+            </Button>
         </Grid>
     </Grid>
 
