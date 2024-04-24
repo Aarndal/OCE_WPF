@@ -20,5 +20,12 @@ namespace OCE_WPF
         {
             InitializeComponent();            
         }
+
+        private void OpenWindow(object sender, RoutedEventArgs e)
+        {
+            Pop myPop = new Pop();
+            myPop.Show();
+
+        }
     }
 }
