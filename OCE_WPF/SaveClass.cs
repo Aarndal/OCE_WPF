@@ -4,9 +4,18 @@ namespace OCE_WPF
 {
     internal class SaveClass
     {
+        private static string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        private static string folderPath = Path.Combine(appDataPath, "ToDoManager3000");
+        private static string filePath = Path.Combine(folderPath, "CardData.txt");
+
+
         public void Save()
         {
-            StreamWriter sw = new StreamWriter("C:\\Users\\pasca\\Test.txt");
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            StreamWriter sw = new StreamWriter(filePath);
 
             foreach (Card card in CardList.taskCards)
             {
@@ -18,7 +27,11 @@ namespace OCE_WPF
 
         public void Load()
         {
-            StreamReader sr = new StreamReader("C:\\Users\\pasca\\Test.txt");
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            StreamReader sr = new StreamReader(filePath);
 
             string savedCardData = sr.ReadLine();
 
