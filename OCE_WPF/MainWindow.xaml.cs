@@ -19,12 +19,6 @@ namespace OCE_WPF
         public MainWindow()
         {
             InitializeComponent(); 
-            
-            CardList cardList = new CardList();
-            cardList.CreateCard();
-
-            SaveClass saveClass = new SaveClass();
-            saveClass.Save();
         }
     }
 }

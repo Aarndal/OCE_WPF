@@ -12,7 +12,7 @@
 
     internal class Card
     {
-        public List<string> categoryList { get; set; }
+        public static List<string> categoryList { get; set; }
         public int ID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
@@ -23,6 +23,7 @@
 
         public Card()
         {
+            categoryList = new List<string>();
             title = "Title";
             description = "Description";
             date = Tuple.Create(0, 0, 0);
