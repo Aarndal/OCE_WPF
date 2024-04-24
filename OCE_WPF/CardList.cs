@@ -9,7 +9,8 @@ namespace OCE_WPF
 {
     internal class CardList : ObservableCollection<Card>
     {
-        public List<Card> taskCards { get; set; }
+        public static List<Card> taskCards { get; set; }
+
         public CardList() 
         { 
             taskCards = new List<Card>();
@@ -18,6 +19,8 @@ namespace OCE_WPF
         {
             taskCards.Add(new Card());
         }
+
+
 
         public List<Card> GetActiveCards()
         {
@@ -29,6 +32,7 @@ namespace OCE_WPF
                     resultList.Add(card);
                 }
             }
+            resultList.Sort();
             return resultList;
         }
         public List<Card> GetFinishedCards()
