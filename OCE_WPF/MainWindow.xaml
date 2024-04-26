@@ -14,7 +14,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="0">
@@ -47,10 +47,24 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="117" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
+
+            <DockPanel Grid.Column="1">
+                <Menu DockPanel.Dock="Bottom">
+                    <MenuItem Header="_Datei">
+                        <MenuItem Header="_New" />
+                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Save" />
+                        <Separator />
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                    <MenuItem Header="_Help"/>
+                    <MenuItem Header="_Neu"/>
+                </Menu>
+            </DockPanel>
+
         </Grid>
     </Grid>
 
