@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace OCE_WPF
 {
@@ -11,10 +6,10 @@ namespace OCE_WPF
     {
         public static List<Card> taskCards { get; set; }
 
-        public CardList() 
-        { 
+        public CardList()
+        {
             taskCards = new List<Card>();
-        }   
+        }
         public void CreateCard()
         {
             taskCards.Add(new Card());
@@ -23,14 +18,14 @@ namespace OCE_WPF
         public void DeleteCard(int _id)
         {
             Card cardToDelete = null;
-            foreach(Card card in taskCards)
+            foreach (Card card in taskCards)
             {
-                if(card.ID == _id) 
+                if (card.ID == _id)
                 {
                     cardToDelete = card;
                 }
             }
-            if(cardToDelete != null)
+            if (cardToDelete != null)
             {
                 taskCards.Remove(cardToDelete);
             }
@@ -39,9 +34,9 @@ namespace OCE_WPF
         public List<Card> GetActiveCards()
         {
             List<Card> resultList = new List<Card>();
-            foreach(Card card in taskCards)
+            foreach (Card card in taskCards)
             {
-                if(!card.isDone)
+                if (!card.isDone)
                 {
                     resultList.Add(card);
                 }

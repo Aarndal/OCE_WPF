@@ -1,4 +1,5 @@
 ﻿<Window x:Class="OCE_WPF.Pop"
+        x:Name="NichtPop"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,8 +8,12 @@
         mc:Ignorable="d"
         Title="New Task" Height="300" Width="600"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" Loaded="PopLoaded" Closed="PopClosed">
 
+    <Window.DataContext>
+        <local:PopViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -35,7 +40,7 @@
                 Grid.Column="0" 
                 Width="250" 
                 TextWrapping="Wrap" 
-                TextChanged="TextBox_TextChanged" />
+                />
             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Description</TextBlock>
             <TextBox
                 Grid.Row="3" 
@@ -54,9 +59,11 @@
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
                 Height="30" 
-                Width="120"
-                Click="CancelButton_Click"
-                />
+                Width="120" 
+                Command="{Binding ClosePopCommand}"
+                CommandParameter="{Binding ElementName=NichtPop}"
+                >
+            </Button>
             <!--endleft-->
             
             <!--right-->

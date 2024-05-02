@@ -68,7 +68,7 @@
                     </MenuItem>
                     <MenuItem Header="_Help"/>
                     <MenuItem Header="_New Task">
-                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Column="1"/>
+                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Column="1" Command="{Binding NewTaskCommand}"/>
                     </MenuItem>
                 </Menu>
             </DockPanel>

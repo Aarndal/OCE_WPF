@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OCE_WPF
+﻿namespace OCE_WPF
 {
     class ViewModel : BaseViewModel
     {
@@ -13,7 +7,9 @@ namespace OCE_WPF
         private List<Card> activeCards;
         private List<Card> finishedCards;
 
-        public DelegateCommand Command { get; set; }
+        public static bool taskWindowOpen;
+
+        public DelegateCommand NewTaskCommand { get; set; }
 
         public CardList CardList
         {
@@ -27,19 +23,18 @@ namespace OCE_WPF
                 }
             }
         }
-        public SaveClass SaveClass 
-        { 
+        public SaveClass SaveClass
+        {
             get => saveClass;
-            set 
+            set
             {
-                if(saveClass != value)
+                if (saveClass != value)
                 {
                     saveClass = value;
                     RaisePropertyChanged();
                 }
-            } 
+            }
         }
-
         public List<Card> ActiveCards
         {
             get => activeCards;
@@ -52,7 +47,6 @@ namespace OCE_WPF
                 }
             }
         }
-
         public List<Card> FinishedCards
         {
             get => finishedCards;
@@ -73,13 +67,19 @@ namespace OCE_WPF
             SaveClass.Load();
             ActiveCards = CardList.GetActiveCards();
             FinishedCards = CardList.GetFinishedCards();
-        }
-        
 
-        //private void OpenWindow(object sender, RoutedEventArgs e)
-        //{
-        //    Pop myPop = new Pop();
-        //    myPop.Show();
-        //}
+            NewTaskCommand = new DelegateCommand(
+                o =>
+                {
+                    Pop myPop = new Pop();
+                    myPop.Show();
+                    taskWindowOpen = true;
+                },
+                o =>
+                {
+                    return true;
+                });
+
+        }
     }
 }
