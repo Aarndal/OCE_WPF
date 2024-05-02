@@ -67,9 +67,10 @@
                         <MenuItem Header="_Exit" />
                     </MenuItem>
                     <MenuItem Header="_Help"/>
-                    <MenuItem Header="_New Task">
-                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenWindow" Width="100" Grid.Column="1"/>
-                    </MenuItem>
+                    <MenuItem 
+                        Header="_New Task" 
+                        x:Name="Click" 
+                        Click="OpenWindow"/>
                 </Menu>
             </DockPanel>
         </Grid>
