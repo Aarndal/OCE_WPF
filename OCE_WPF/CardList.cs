@@ -20,7 +20,21 @@ namespace OCE_WPF
             taskCards.Add(new Card());
         }
 
-
+        public void DeleteCard(int _id)
+        {
+            Card cardToDelete = null;
+            foreach(Card card in taskCards)
+            {
+                if(card.ID == _id) 
+                {
+                    cardToDelete = card;
+                }
+            }
+            if(cardToDelete != null)
+            {
+                taskCards.Remove(cardToDelete);
+            }
+        }
 
         public List<Card> GetActiveCards()
         {
