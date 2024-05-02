@@ -3,16 +3,16 @@
 
     public enum Priority
     {
-        NotImportant,
-        ABitImportant,
-        MoreImportant,
-        KindaImportant,
-        JoaSchonWichtig
+        None,
+        Low,
+        Medium,
+        High,
+        VeryHigh
     }
 
     internal class Card
     {
-        public static List<string> categoryList { get; set; }
+        public static List<string> CategoryList { get; set; }
         public int ID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
@@ -23,11 +23,11 @@
 
         public Card()
         {
-            categoryList = new List<string>();
+            CategoryList = new List<string>();
             title = "Title";
             description = "Description";
             date = Tuple.Create(0, 0, 0);
-            priority = Priority.MoreImportant;
+            priority = Priority.None;
             category = "Category";
             isDone = false;
         }

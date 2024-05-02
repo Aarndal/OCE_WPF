@@ -17,7 +17,7 @@ namespace OCE_WPF
             }
             StreamWriter sw = new StreamWriter(filePath);
 
-            foreach (Card card in CardList.taskCards)
+            foreach (Card card in CardList.TaskCards)
             {
                 sw.WriteLine(ConvertCardToString(card));
             }
@@ -35,10 +35,10 @@ namespace OCE_WPF
 
             string savedCardData = sr.ReadLine();
 
-            CardList.taskCards.Clear();
+            CardList.TaskCards.Clear();
             while (!(savedCardData == "" || savedCardData == null))
             {
-                CardList.taskCards.Add(ConvertStringToCard(savedCardData));
+                CardList.TaskCards.Add(ConvertStringToCard(savedCardData));
                 savedCardData = sr.ReadLine();
             }
             sr.Close();
@@ -79,7 +79,7 @@ namespace OCE_WPF
             result.category = rawCardData[7];
             if(result.category != "Category")
             {
-                Card.categoryList.Add(result.category);
+                Card.CategoryList.Add(result.category);
             }
 
             result.isDone = bool.Parse(rawCardData[8]);

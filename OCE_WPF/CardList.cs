@@ -4,21 +4,21 @@ namespace OCE_WPF
 {
     internal class CardList : ObservableCollection<Card>
     {
-        public static List<Card> taskCards { get; set; }
+        public static List<Card> TaskCards { get; set; }
 
         public CardList()
         {
-            taskCards = new List<Card>();
+            TaskCards = new List<Card>();
         }
         public void CreateCard()
         {
-            taskCards.Add(new Card());
+            TaskCards.Add(new Card());
         }
 
         public void DeleteCard(int _id)
         {
             Card cardToDelete = null;
-            foreach (Card card in taskCards)
+            foreach (Card card in TaskCards)
             {
                 if (card.ID == _id)
                 {
@@ -27,14 +27,14 @@ namespace OCE_WPF
             }
             if (cardToDelete != null)
             {
-                taskCards.Remove(cardToDelete);
+                TaskCards.Remove(cardToDelete);
             }
         }
 
         public List<Card> GetActiveCards()
         {
             List<Card> resultList = new List<Card>();
-            foreach (Card card in taskCards)
+            foreach (Card card in TaskCards)
             {
                 if (!card.isDone)
                 {
@@ -47,7 +47,7 @@ namespace OCE_WPF
         public List<Card> GetFinishedCards()
         {
             List<Card> resultList = new List<Card>();
-            foreach (Card card in taskCards)
+            foreach (Card card in TaskCards)
             {
                 if (card.isDone)
                 {

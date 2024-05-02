@@ -1,6 +1,6 @@
 ﻿namespace OCE_WPF
 {
-    class ViewModel : BaseViewModel
+    class MainViewModel : BaseViewModel
     {
         private CardList cardList;
         private SaveClass saveClass;
@@ -60,7 +60,7 @@
             }
         }
 
-        public ViewModel()
+        public MainViewModel()
         {
             CardList = new CardList();
             SaveClass = new SaveClass();
@@ -71,9 +71,8 @@
             NewTaskCommand = new DelegateCommand(
                 o =>
                 {
-                    Pop myPop = new Pop();
-                    myPop.Show();
-                    taskWindowOpen = true;
+                    PopUpWindow newTask = new ();
+                    newTask.ShowDialog();
                 },
                 o =>
                 {

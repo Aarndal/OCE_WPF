@@ -10,7 +10,7 @@
         ResizeMode="NoResize">
 
     <Window.DataContext>
-        <local:ViewModel/>
+        <local:MainViewModel/>
     </Window.DataContext>
     
     <Grid>
@@ -68,7 +68,7 @@
                     </MenuItem>
                     <MenuItem Header="_Help"/>
                     <MenuItem Header="_New Task">
-                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Column="1" Command="{Binding NewTaskCommand}"/>
+                      <Button x:Name="Click"  Content="Create New Task" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Column="1" Command="{Binding NewTaskCommand}"/>
                     </MenuItem>
                 </Menu>
             </DockPanel>
