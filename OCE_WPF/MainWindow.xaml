@@ -48,6 +48,11 @@
                 <ColumnDefinition Width="142" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <Button Padding="5" Click="Button_Click" Margin="18,0,279,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Icons/Plus_Button.ico" />
+                </StackPanel>
+            </Button>
             <DockPanel Grid.Column="1">
                 <Menu DockPanel.Dock="Bottom">
                     <MenuItem Header="_Data">
