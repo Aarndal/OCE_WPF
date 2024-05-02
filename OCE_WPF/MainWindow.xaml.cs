@@ -19,21 +19,6 @@ namespace OCE_WPF
         public MainWindow()
         {
             InitializeComponent();
-
-            CardList cards = new CardList();
-            cards.CreateCard();
-
-            SaveClass saveClass = new SaveClass();
-
-            saveClass.Load();
-
-            saveClass.Save();
-        }
-
-        private void OpenWindow(object sender, RoutedEventArgs e)
-        {
-            Pop myPop = new Pop();
-            myPop.Show();
         }
     }
 }
