@@ -8,10 +8,6 @@
         Title="ToDo" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-    
-    <Window.DataContext>
-        <local:ViewModel/>
-    </Window.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -32,13 +28,13 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">
-                To Do
+                    To Do
             </TextBlock>
 
             <GridSplitter Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Stretch" Grid.RowSpan="2" Width="5" />
 
             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">
-                Done
+                    Done
             </TextBlock>
 
         </Grid>
@@ -63,12 +59,10 @@
                     </MenuItem>
                     <MenuItem Header="_Help"/>
                     <MenuItem Header="_New Task">
-                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenWindow" Width="100" Grid.Column="1"/>
+                        <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenWindow" Width="100" Grid.Column="1"/>
                     </MenuItem>
                 </Menu>
             </DockPanel>
         </Grid>
     </Grid>
-
-
 </Window>
