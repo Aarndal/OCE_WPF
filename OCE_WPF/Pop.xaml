@@ -5,23 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCE_WPF"
         mc:Ignorable="d"
-        Title="New Task" Height="350" Width="600"
+        Title="New Task" Height="300" Width="600"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">New Task</TextBlock>
-        </Grid>
-
         <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="80"/>
@@ -35,21 +30,68 @@
 
             <!--left-->
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Title</TextBlock>
-            <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" />
+            <TextBox 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                Width="250" 
+                TextWrapping="Wrap" 
+                TextChanged="TextBox_TextChanged" />
             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Description</TextBlock>
-            <TextBox Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" />
-            <Button Content="Cancel" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="30" Width="120"/>
-
+            <TextBox
+                Grid.Row="3" 
+                Grid.Column="0" 
+                Width="250"                
+                TextWrapping="Wrap" 
+                AcceptsReturn="True" 
+                AcceptsTab="True"
+                HorizontalScrollBarVisibility="Disabled"
+                VerticalScrollBarVisibility="Auto"
+                
+                />
+            <Button 
+                Content="Cancel" 
+                Grid.Row="4" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Height="30" 
+                Width="120"
+                />
+            <!--endleft-->
+            
             <!--right-->
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Date</TextBlock>
-            <DatePicker Grid.Row="1" Grid.Column="1" SelectedDateFormat="Long" FirstDayOfWeek="Monday" Margin="40,0,40,0"/>
+            <DatePicker 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                SelectedDateFormat="Long" 
+                FirstDayOfWeek="Monday" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                Width="160"
+                />
             <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Prio</TextBlock>
-            <ComboBox Grid.Row="3" Grid.Column="1" Height="20" Margin="72,0,72,60">
+            <ComboBox 
+                Grid.Row="3" 
+                Grid.Column="1" 
+                Height="20" 
+                Width="120"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                >
                 <ComboBoxItem IsSelected="True">Ultra High</ComboBoxItem>
                 <ComboBoxItem>High</ComboBoxItem>
                 <ComboBoxItem>Low</ComboBoxItem>
             </ComboBox>
-            <Button Content="Done" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Height="30" Width="120"/>
+            <Button 
+                Content="Done" 
+                HorizontalAlignment="Center" 
+                Grid.Column="1" 
+                Grid.Row="4" 
+                VerticalAlignment="Center" 
+                Height="30" 
+                Width="120"/>
+            <!--endright-->
+            
         </Grid>
     </Grid>
 </Window>
