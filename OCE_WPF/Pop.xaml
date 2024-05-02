@@ -55,6 +55,7 @@
                 VerticalAlignment="Center" 
                 Height="30" 
                 Width="120"
+                Click="CancelButton_Click"
                 />
             <!--endleft-->
             
