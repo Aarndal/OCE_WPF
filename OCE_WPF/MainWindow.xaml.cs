@@ -18,7 +18,7 @@ namespace OCE_WPF
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent(); 
         }
 
         private void OpenWindow(object sender, RoutedEventArgs e)
