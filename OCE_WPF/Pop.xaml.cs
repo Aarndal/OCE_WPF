@@ -28,5 +28,12 @@ namespace OCE_WPF
         {
 
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Close the window
+            this.Close();
+        }
+
     }
 }
