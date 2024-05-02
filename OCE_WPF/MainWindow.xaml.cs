@@ -24,7 +24,6 @@ namespace OCE_WPF
             cards.CreateCard();
 
             SaveClass saveClass = new SaveClass();
-            saveClass.Save();
 
             saveClass.Load();
 

@@ -36,7 +36,7 @@ namespace OCE_WPF
             string savedCardData = sr.ReadLine();
 
             CardList.taskCards.Clear();
-            while (savedCardData != null)
+            while (!(savedCardData == "" || savedCardData == null))
             {
                 CardList.taskCards.Add(ConvertStringToCard(savedCardData));
                 savedCardData = sr.ReadLine();
@@ -65,7 +65,7 @@ namespace OCE_WPF
             int.TryParse(rawCardData[0], out temp);
             result.ID = temp;
 
-            result.title = rawCardData[1].Replace("_"," ");
+            result.title = rawCardData[1].Replace("_", " ");
 
             result.description = rawCardData[2].Replace("_", " ");
 
