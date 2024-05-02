@@ -25,7 +25,6 @@ namespace OCE_WPF
         {
             Pop myPop = new Pop();
             myPop.Show();
-
         }
     }
 }
