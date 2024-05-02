@@ -21,9 +21,10 @@ namespace OCE_WPF
             InitializeComponent();            
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void OpenWindow(object sender, RoutedEventArgs e)
         {
-
+            Pop myPop = new Pop();
+            myPop.Show();
         }
     }
 }
