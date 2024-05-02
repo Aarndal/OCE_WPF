@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCE_WPF"
         mc:Ignorable="d"
-        Title="ToDo" Height="450" Width="800">
-
+        Title="ToDo" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
@@ -14,7 +16,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -47,7 +49,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="142" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Padding="5" Click="Button_Click" Margin="18,0,279,0">
@@ -55,6 +57,21 @@
                     <Image Source="/Icons/Plus_Button.ico" />
                 </StackPanel>
             </Button>
+            <DockPanel Grid.Column="1">
+                <Menu DockPanel.Dock="Bottom">
+                    <MenuItem Header="_Data">
+                        <MenuItem Header="_New List" />
+                        <MenuItem Header="_Open List" />
+                        <MenuItem Header="_Save List" />
+                        <Separator />
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                    <MenuItem Header="_Help"/>
+                    <MenuItem Header="_New Task">
+                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenWindow" Width="100" Grid.Column="1"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
         </Grid>
     </Grid>
 
