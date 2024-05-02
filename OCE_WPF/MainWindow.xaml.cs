@@ -36,5 +36,10 @@ namespace OCE_WPF
             Pop myPop = new Pop();
             myPop.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
