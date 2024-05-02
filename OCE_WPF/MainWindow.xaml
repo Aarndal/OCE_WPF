@@ -47,21 +47,21 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="117" />
+                <ColumnDefinition Width="142" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <DockPanel Grid.Column="1">
                 <Menu DockPanel.Dock="Bottom">
-                    <MenuItem Header="_Datei">
-                        <MenuItem Header="_New" />
-                        <MenuItem Header="_Open" />
-                        <MenuItem Header="_Save" />
+                    <MenuItem Header="_Data">
+                        <MenuItem Header="_New List" />
+                        <MenuItem Header="_Open List" />
+                        <MenuItem Header="_Save List" />
                         <Separator />
                         <MenuItem Header="_Exit" />
                     </MenuItem>
                     <MenuItem Header="_Help"/>
-                    <MenuItem Header="_Neu"/>
+                    <MenuItem Header="_New Task"/>
                 </Menu>
             </DockPanel>
 
