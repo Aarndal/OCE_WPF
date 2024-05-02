@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCE_WPF"
         mc:Ignorable="d"
-        Title="ToDo" Height="450" Width="800">
+        Title="ToDo" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     
     <Window.DataContext>
         <local:ViewModel/>
@@ -16,17 +18,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">
@@ -40,7 +42,7 @@
             </TextBlock>
 
         </Grid>
-        
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -50,7 +52,6 @@
                 <ColumnDefinition Width="142" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
             <DockPanel Grid.Column="1">
                 <Menu DockPanel.Dock="Bottom">
                     <MenuItem Header="_Data">
@@ -61,10 +62,11 @@
                         <MenuItem Header="_Exit" />
                     </MenuItem>
                     <MenuItem Header="_Help"/>
-                    <MenuItem Header="_New Task"/>
+                    <MenuItem Header="_New Task">
+                      <Button x:Name="Click"  Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenWindow" Width="100" Grid.Column="1"/>
+                    </MenuItem>
                 </Menu>
             </DockPanel>
-
         </Grid>
     </Grid>
 
