@@ -13,7 +13,7 @@
     <Window.DataContext>
         <local:PopUpViewModel/>
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -21,10 +21,12 @@
 
         <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -35,12 +37,12 @@
 
             <!--left-->
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Title</TextBlock>
-            <TextBox Text="{Binding title}" Grid.Row="1" Grid.Column="0" Width="250" TextWrapping="Wrap"/>
+            <TextBox Text="{Binding Title}" Grid.Row="1" Grid.Column="0" Width="250" TextWrapping="Wrap"/>
             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Description</TextBlock>
-            <TextBox Text="{Binding description}" Grid.Row="3" Grid.Column="0" Width="250" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Text="{Binding Description}" Grid.Row="3" Grid.Column="0" Width="250" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.RowSpan="3"/>
             <Button 
                 Content="Cancel" 
-                Grid.Row="4" 
+                Grid.Row="6" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
                 Height="30" 
@@ -51,11 +53,11 @@
                 >
             </Button>
             <!--endleft-->
-            
+
             <!--right-->
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Date</TextBlock>
             <DatePicker 
-                SelectedDate="{Binding date}"
+                SelectedDate="{Binding Date}"
                 Grid.Row="1" 
                 Grid.Column="1" 
                 SelectedDateFormat="Short" 
@@ -81,11 +83,21 @@
                 <ComboBoxItem>High</ComboBoxItem>
                 <ComboBoxItem>VeryHigh</ComboBoxItem>
             </ComboBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Category</TextBlock>
+            <Grid Grid.Row="5" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Content="+" Command="{Binding AddCategoryCommand}" Margin="205,0,65,10"/>
+                <ComboBox x:Name="CategoryDropDown" Grid.Row="0" Grid.Column="2" Height="20" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding Category}" IsSynchronizedWithCurrentItem="True" IsEditable="True" ItemsSource="{Binding CategoryList}"/>
+            </Grid>
+            
             <Button 
                 Content="Done" 
                 HorizontalAlignment="Center" 
                 Grid.Column="1" 
-                Grid.Row="4" 
+                Grid.Row="6" 
                 VerticalAlignment="Center" 
                 Height="30" 
                 Width="120"
@@ -93,7 +105,7 @@
                 Command="{Binding DoneCommand}"
                 />
             <!--endright-->
-            
+
         </Grid>
     </Grid>
 </Window>

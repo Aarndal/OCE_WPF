@@ -82,12 +82,14 @@
                     {
                        Card card = cardList.CreateCardReturn();
                         card.ID = CurrentNewTaskVM.ID;
-                        card.title = CurrentNewTaskVM.title;
-                        card.description = CurrentNewTaskVM.description;
-                        card.date = CurrentNewTaskVM.date;
-                        card.priority = Enum.Parse<Priority>((CurrentNewTaskVM.priority.Split())[1]);
-                        card.category = CurrentNewTaskVM.category;
-                        card.isDone = CurrentNewTaskVM.isDone;
+                        card.title = CurrentNewTaskVM.Title;
+                        card.description = CurrentNewTaskVM.Description;
+                        card.date = CurrentNewTaskVM.Date;
+                        card.priority = Enum.Parse<Priority>((CurrentNewTaskVM.Priority.Split())[1]);
+                        card.category = CurrentNewTaskVM.Category;
+                        card.isDone = CurrentNewTaskVM.IsDone;
+
+                        Card.CategoryList = new List<string>(PopUpViewModel.categoryList);
 
                         SaveClass.Save();
                     };

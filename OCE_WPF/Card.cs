@@ -23,7 +23,6 @@
 
         public Card()
         {
-            CategoryList = new List<string>();
             title = "Title";
             description = "Description";
             date = "0/0/0";

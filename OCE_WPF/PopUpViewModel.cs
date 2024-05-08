@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Media;
 
 namespace OCE_WPF
 {
@@ -7,15 +10,17 @@ namespace OCE_WPF
         public Window PopUpWindowItem { get; set; }
         public DelegateCommand DoneCommand { get; set; }
         public DelegateCommand CancelCommand { get; set; }
+        public DelegateCommand AddCategoryCommand { get; set; }
+        public static ObservableCollection<string> categoryList { get; set; }
 
         public event EventHandler PopUpSave;
-        public int id;
-        public string title;
-        public string description;
-        public string date;
-        public string priority;
-        public string category;
-        public bool isDone;
+        private int id;
+        private string title;
+        private string description;
+        private string date;
+        private string priority;
+        private string category;
+        private bool isDone;
         public int ID
         {
             get => id;
@@ -100,15 +105,28 @@ namespace OCE_WPF
                 }
             }
         }
+        public ObservableCollection<string> CategoryList
+        {
+            get => categoryList;
+            set
+            {
+                if (categoryList != value)
+                {
+                    categoryList = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
 
         public PopUpViewModel()
         {
+            CategoryList = new ObservableCollection<string>(Card.CategoryList);
             title = "Title";
             description = "Description";
             date = "6/1/2005";
-            priority = "None";
-            category = "Category";
+            priority = "n None";
+            category = "";
             isDone = false;
 
             DoneCommand = new DelegateCommand(
@@ -126,6 +144,25 @@ namespace OCE_WPF
                 o =>
                 {
                     PopUpWindowItem.Close();
+                },
+                o =>
+                {
+                    return true;
+                });
+            AddCategoryCommand = new DelegateCommand(
+                o =>
+                {
+                    if (Category == "Category" || Category == null)
+                    {
+                        CategoryList.Add("New Category");
+                        Category = CategoryList.Last();
+                        return;
+                    }
+                    if (!CategoryList.Contains(Category))
+                    {
+                        CategoryList.Add(Category);
+                        Category = CategoryList.Last();
+                    }
                 },
                 o =>
                 {

@@ -31,11 +31,17 @@ namespace OCE_WPF
             {
                 Directory.CreateDirectory(folderPath);
             }
+            if(!File.Exists(filePath))
+            {
+                StreamWriter sw = new StreamWriter(filePath);
+                sw.Close();
+            }
             StreamReader sr = new StreamReader(filePath);
 
             string savedCardData = sr.ReadLine();
 
             CardList.TaskCards.Clear();
+            Card.CategoryList = new List<string>();
             while (!(savedCardData == "" || savedCardData == null))
             {
                 CardList.TaskCards.Add(ConvertStringToCard(savedCardData));
