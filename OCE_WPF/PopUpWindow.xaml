@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="New Task" Height="300" Width="600"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" Loaded="PopUpLoaded">
 
     <Window.DataContext>
         <local:PopUpViewModel/>
@@ -35,24 +35,9 @@
 
             <!--left-->
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Title</TextBlock>
-            <TextBox 
-                Grid.Row="1" 
-                Grid.Column="0" 
-                Width="250" 
-                TextWrapping="Wrap" 
-                />
+            <TextBox Text="{Binding title}" Grid.Row="1" Grid.Column="0" Width="250" TextWrapping="Wrap"/>
             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Description</TextBlock>
-            <TextBox
-                Grid.Row="3" 
-                Grid.Column="0" 
-                Width="250"                
-                TextWrapping="Wrap" 
-                AcceptsReturn="True" 
-                AcceptsTab="True"
-                HorizontalScrollBarVisibility="Disabled"
-                VerticalScrollBarVisibility="Auto"
-                
-                />
+            <TextBox Text="{Binding description}" Grid.Row="3" Grid.Column="0" Width="250" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
             <Button 
                 Content="Cancel" 
                 Grid.Row="4" 
@@ -70,9 +55,10 @@
             <!--right-->
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Date</TextBlock>
             <DatePicker 
+                SelectedDate="{Binding date}"
                 Grid.Row="1" 
                 Grid.Column="1" 
-                SelectedDateFormat="Long" 
+                SelectedDateFormat="Short" 
                 FirstDayOfWeek="Monday" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Top" 
@@ -80,16 +66,20 @@
                 />
             <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap">Prio</TextBlock>
             <ComboBox 
+                
                 Grid.Row="3" 
                 Grid.Column="1" 
                 Height="20" 
                 Width="120"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Top" 
+                SelectedItem="{Binding Priority}"
                 >
-                <ComboBoxItem IsSelected="True">Ultra High</ComboBoxItem>
-                <ComboBoxItem>High</ComboBoxItem>
+                <ComboBoxItem>None</ComboBoxItem>
                 <ComboBoxItem>Low</ComboBoxItem>
+                <ComboBoxItem>Medium</ComboBoxItem>
+                <ComboBoxItem>High</ComboBoxItem>
+                <ComboBoxItem>VeryHigh</ComboBoxItem>
             </ComboBox>
             <Button 
                 Content="Done" 
@@ -98,7 +88,7 @@
                 Grid.Row="4" 
                 VerticalAlignment="Center" 
                 Height="30" 
-                Width="120" Click="Button_Click"
+                Width="120"
                 IsDefault="True"
                 Command="{Binding DoneCommand}"
                 />

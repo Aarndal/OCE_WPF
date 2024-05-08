@@ -14,15 +14,10 @@ namespace OCE_WPF
 
         private void PopUpLoaded(object sender, RoutedEventArgs e)
         {
-            
+            ((PopUpViewModel) DataContext).PopUpWindowItem = (Window)sender;
         }
 
         private void PopUpClosed(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

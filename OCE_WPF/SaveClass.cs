@@ -48,7 +48,7 @@ namespace OCE_WPF
             string cardID = _input.ID.ToString();
             string cardTitle = _input.title.Trim().Replace(" ","_");
             string cardDescription = _input.description.Trim().Replace(" ", "_");
-            string cardDate = _input.date.ToString();
+            string cardDate = _input.date;
             string cardPriority = _input.priority.ToString();
             string cardCategory = _input.category;
             string cardStatus = _input.isDone.ToString();
@@ -58,7 +58,8 @@ namespace OCE_WPF
         }
         public Card ConvertStringToCard(string _input)
         {
-            string[] rawCardData = _input.Split(" ");
+            string[] rawCardData = new string[8];
+            rawCardData = _input.Split(" ");
             Card result = new Card();
 
             int temp;
@@ -69,20 +70,33 @@ namespace OCE_WPF
 
             result.description = rawCardData[2].Replace("_", " ");
 
-            rawCardData[3] = rawCardData[3].Replace("(", "").Replace(",", "");
-            rawCardData[4] = rawCardData[4].Replace(",", "");
-            rawCardData[5] = rawCardData[5].Replace(")", "");
-            result.date = Tuple.Create<int, int, int>(int.Parse(rawCardData[3]), int.Parse(rawCardData[4]), int.Parse(rawCardData[5]));
+            result.date = rawCardData[3];
 
-            result.priority = Enum.Parse<Priority>(rawCardData[6]);
-
-            result.category = rawCardData[7];
-            if(result.category != "Category")
+            if(rawCardData.Count() < 8)
             {
-                Card.CategoryList.Add(result.category);
+                result.priority = Enum.Parse<Priority>(rawCardData[4]);
+
+                result.category = rawCardData[5];
+                if (result.category != "Category")
+                {
+                    Card.CategoryList.Add(result.category);
+                }
+
+                result.isDone = bool.Parse(rawCardData[6]);
+            }
+            else
+            {
+                result.priority = Enum.Parse<Priority>(rawCardData[6]);
+
+                result.category = rawCardData[7];
+                if (result.category != "Category")
+                {
+                    Card.CategoryList.Add(result.category);
+                }
+
+                result.isDone = bool.Parse(rawCardData[8]);
             }
 
-            result.isDone = bool.Parse(rawCardData[8]);
 
             return result;
         }

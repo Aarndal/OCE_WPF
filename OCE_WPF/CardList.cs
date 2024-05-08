@@ -14,6 +14,12 @@ namespace OCE_WPF
         {
             TaskCards.Add(new Card());
         }
+        public Card CreateCardReturn()
+        {
+            Card card = new Card();
+            TaskCards.Add(card);
+            return card;
+        }
 
         public void DeleteCard(int _id)
         {
@@ -41,7 +47,7 @@ namespace OCE_WPF
                     resultList.Add(card);
                 }
             }
-            resultList.Sort();
+            resultList.Sort((x, y) => x.priority.CompareTo(y.priority));
             return resultList;
         }
         public List<Card> GetFinishedCards()
@@ -54,6 +60,7 @@ namespace OCE_WPF
                     resultList.Add(card);
                 }
             }
+            resultList.Sort((x, y) => x.priority.CompareTo(y.priority));
             return resultList;
         }
     }
